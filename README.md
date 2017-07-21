@@ -1,30 +1,27 @@
-# gig_freelancer_for_wp
-These are instructions for creating a git repo of your personal blog so you can hire a gig freelancer to pull out a thorn.
+README gig_freelancer_for_wp
 
 # WordPress_setup_for_freelancer
+These are instructions for setting up your personal WordPress blog, so you can hire a gig freelancer to pull out a thorn.
 
----
-Set up a WordPress website on shared hosting for working with gig freelancer.
-Follow changes to your website with git.
-
-This assumes that if your live WordPress directory on your remote server looked like this:
-+ /home/mydomain/public_html/
-    + fooproject/
-        - dev.fooproject/
-        - live.fooproject/
-
-Then your WordPress directory will look something like this when finished:
-+ /home/mydomain/public_html/
-    + fooproject/
-        - dev.fooproject/
-        - freelancer.fooproject/
-        - git.fooproject/
-        - live.fooproject/
-
-For these instructions you will require privledged access to your remote server:
+These instructions assume your personal blog is on a low-cost Shared Hosting server. For these instructions you will require privledged access to your remote server:
     - SSH/Bash access to your shared server, noted below as `$`
     - cPanel, noted below as `cPanel`
     - WordPress-Admin, noted below as `WP`
+
+This assumes that if your live WordPress directory on your remote server looked like this:
+    + /home/mydomain/public_html/
+        + fooproject/
+            - dev.fooproject/
+            - live.fooproject/
+
+Then your WordPress directory will look something like this when finished:
+    + /home/mydomain/public_html/
+        + fooproject/
+            - dev.fooproject/
+            - freelancer.fooproject/
+            - git.fooproject/
+            - live.fooproject/
+
 
 1.) Create central repository
 1.1) Create bare git central repo:
