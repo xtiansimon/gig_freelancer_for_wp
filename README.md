@@ -25,13 +25,12 @@ Then your WordPress directory will look something like this when finished:
             - git.fooproject/
             - live.fooproject/
 
-
 ## Create central repository
 1. Create bare git central repo:
 Begin in the project directory on your webserver. This is the parent directory of your WordPress install directory:
 
-    $ cd /home/mydomain/public_html/fooproject/
-    $ git init --bare fooproject.git
+        $ cd /home/mydomain/public_html/fooproject/
+        $ git init --bare fooproject.git
 
 *NOTE. This is how I like to setup directories on my webserver. Your structure will likely be different. The important feature is to locate the central repository in a directory where the freelancer does not have permissions to access via ftp.*
 
@@ -51,28 +50,28 @@ I originally had a git repo with `live` and `dev` versions. After I stopped deve
 
 4. Create new:
 
-    $ git init
-    $ git add *
-    $ git commit .
+        $ git init
+        $ git add *
+        $ git commit .
 
 OR, Update existing project repo.
 
 5. Updating Remote name and url
 Update the project repo to point to the central repo:
 
-    $ git remote add origin path/to/your/central/git/repo
+        $ git remote add origin path/to/your/central/git/repo
 
 Confirm change:
 
-    $ git remote -v
+        $ git remote -v
 
 6. Rename origin to project name
 (I don't think this is necessary, but it's something that I've been doing)
 
-    $ git remote rename origin fooproject
+        $ git remote rename origin fooproject
 
 7. Push to the Central Repository; Complete initial git repo setup
-    $ git push fooproject master
+        $ git push fooproject master
 
 Now we have two copies of the exisiting website. 
 Next, we git pull from the central report to our new freelancer directory.
@@ -81,12 +80,12 @@ Next, we git pull from the central report to our new freelancer directory.
 ## Clone project to freelancer subdomain 
 8. Create new folder in project directory:
 
-    $ mkdir freelancer.fooproject
+        $ mkdir freelancer.fooproject
     
 9. Change directory to the `freelancer.fooproject` directory:
 
-    $ cd /home/mydomain/public_html/fooproject/freelancer.fooproject
-    $ git clone --branch master fooproject.git freelancer.fooproject
+        $ cd /home/mydomain/public_html/fooproject/freelancer.fooproject
+        $ git clone --branch master fooproject.git freelancer.fooproject
 
 Now there are three copies of the exisiting website. 
 This new subdomain we will share with the freelancer.
@@ -100,26 +99,25 @@ This new subdomain we will share with the freelancer.
 ## Set up the WordPress database
 10. Copy the existing WordPress database:
 
-    cPanel [Home] > Databases > phpMyAdmin
-        - Select database in sidebar: `fooproject`
-        - In focus area find Operations [tab] --> copy database to
-        - Enter new database's name=
-            `fooproject_dev`
+        cPanel [Home] > Databases > phpMyAdmin
+            - Select database in sidebar: `fooproject`
+            - In focus area find Operations [tab] --> copy database to
+            - Enter new database's name=
+                `fooproject_dev`
         
-    
 11. Edit the `options` table in the new database copy.
 Using the subdomain trick, phpMyAdmin will group the new database in the database names tree. 
 
 12. Open the tree to see the new database's tables.
 
 - Select database table:
-        `fooproject_dev` > fooproject_options 
+            `fooproject_dev` > fooproject_options 
 
 13. Edit table values:
 
-    siteurl = freelancer.fooproject.mydomain.com
-    home = freelancer.fooproject.mydomain.com
-    blogname = [existing title] -- freelancer
+        siteurl = freelancer.fooproject.mydomain.com
+        home = freelancer.fooproject.mydomain.com
+        blogname = [existing title] -- freelancer
 
 
 ## Create new database user.
@@ -129,14 +127,14 @@ Warning. Your live WordPress directory has the file `wp-config.php`. This file r
 
 14. Create new user:
 
-    user = fooproject_freelancer
-    password = [same as database]
-    priveledges, all
+        user = fooproject_freelancer
+        password = [same as database]
+        priveledges, all
 
 15. Add user as Privileged User of new database:
 
-    - Find on page --> 'Add a User to a Database'
-    - You database will only need this one Privileged User
+- Find on page --> 'Add a User to a Database'
+- You database will only need this one Privileged User
 
 
 ## Customize `wp-config.php` for freelancer subdomain.
@@ -145,10 +143,9 @@ Warning. Your live WordPress directory has the file `wp-config.php`. This file r
 
 17. Edit and change the values for the following parameters to match new database user (#4.1):
 
-    DB_NAME
-    DB_USER
-    DB_PASSWORD
-
+        DB_NAME
+        DB_USER
+        DB_PASSWORD
 
 ## Create FTP user access.
 FTP is helpful when you're developing. Be kind to your freelancer and give them FTP.    
@@ -174,21 +171,21 @@ Your current WordPress user is still the same as on the original live WordPress 
 
 18. Login as admin to edit:
 
-    http://freelancer.fooproject.mydomain.com/wp-admin/
+        http://freelancer.fooproject.mydomain.com/wp-admin/
 
 19. Create new WP user, "freelancer".
     
 20. Add new user:
 
-    WP [dashboard] > Users > All Users --> Add New
-        user = freelancer
-        password = [same as database]
+        WP [dashboard] > Users > All Users --> Add New
+            user = freelancer
+            password = [same as database]
     
 21. Grant Admin privledges:
 
-    WP [dashboard] > Users > All Users --> Change role to...
-        - Check new user name from the list    
-        - Select 'Administrator' from `Change role to...` pulldown menu
+        WP [dashboard] > Users > All Users --> Change role to...
+            - Check new user name from the list    
+            - Select 'Administrator' from `Change role to...` pulldown menu
 
 22. Change your admin user's password also !!
     (I also updated my email address from private to business)
