@@ -43,8 +43,8 @@ Change directory to the production (or testing/dev) directory:
 2. Create `.gitignore` file for the current installation.
 There are plenty of examples on the internet. At this point, I'm concerned only with sensitive information 
 
-    # Ignore configuration files that may contain sensitive information.
-    wp-config.php
+        # Ignore configuration files that may contain sensitive information.
+        wp-config.php
     
 3. Create git project repo OR update current git repo
 I originally had a git repo with `live` and `dev` versions. After I stopped developing for a time, I went through my subdomains and removed the central repos and `dev` subdomains. For this project, I needed to recreate all of the git repos. 
