@@ -5,9 +5,9 @@ These are instructions for setting up your personal WordPress blog, so you can h
 
 These instructions assume your personal blog is on a low-cost Shared Hosting server. For these instructions you will require privledged access to your remote server:
 
-    - SSH/Bash access to your shared server, noted below as `$`
-    - cPanel, noted below as `cPanel`
-    - WordPress-Admin, noted below as `WP`
+- SSH/Bash access to your shared server, noted below as `$`
+- cPanel, noted below as `cPanel`
+- WordPress-Admin, noted below as `WP`
 
 This assumes that if your live WordPress directory on your remote server looked like this:
 
@@ -33,7 +33,7 @@ Begin in the project directory on your webserver. This is the parent directory o
     $ cd /home/mydomain/public_html/fooproject/
     $ git init --bare fooproject.git
 
-(NOTE. This is how I like manage directories on my webserver. Your structure will likely be different. The important feature is to locate the central repository in a directory where the freelancer does not have permissions to access via ftp.)
+*NOTE. This is how I like to setup directories on my webserver. Your structure will likely be different. The important feature is to locate the central repository in a directory where the freelancer does not have permissions to access via ftp.*
 
 ## Create git project repo in existing WordPress install directory
 Change directory to the production (or testing/dev) directory:
