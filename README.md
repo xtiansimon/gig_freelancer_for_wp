@@ -1,6 +1,6 @@
 README gig_freelancer_for_wp
 
-# WordPress setup for freelancer
+# WordPress setup for working with gig freelancers
 These are instructions for setting up your personal WordPress blog, so you can hire a gig freelancer to pull out a thorn.
 
 These instructions assume your personal blog is on a low-cost Shared Hosting server. For these instructions you will require privledged access to your remote server:
