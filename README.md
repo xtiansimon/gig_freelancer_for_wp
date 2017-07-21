@@ -72,7 +72,7 @@ Now we have two copies of the exisiting website.
 Next, we git pull from the central report to our new freelancer directory.
 
 
-## Clone project to freelancer subdomain 
+## Clone project to `freelancer` subdomain 
 
 8. **Create new folder in project directory:**
 
